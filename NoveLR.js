@@ -41,7 +41,7 @@
             content = $('#content').html();
         } else if (hn == "www.gxwztv.com") {
             title = $('div#h1 > h1').text();
-            content = $('#txtContent p').html();
+            content = $('#txtContent').html();
         } else if (hn == "www.xueyinglingzhu5200.com") {
             title = $('div.bookname h1').text();
             content = $('#content').html();
