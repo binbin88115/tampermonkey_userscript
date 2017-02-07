@@ -11,7 +11,6 @@
 // @match        http://www.xueyinglingzhu5200.com/book/*/*.html
 // @match        http://www.biquge.com.tw/*/*.html
 // @match        http://www.lwxs520.com/books/*/*/*.html
-// @require      http://code.jquery.com/jquery-2.2.4.min.js
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
@@ -28,46 +27,41 @@
             }
         }
     });
-    var option = {
-        'childList': true
-    };
-    observer.observe(document.body, option);
+    observer.observe(document.body, { 'childList': true });
     
-    var getData = function() {
+    var data = function() {
         var title = '';
         var content = '';
         var hn = location.hostname;
         if (hn == "www.79xs.com") {
-            title = $('#htmltimu').text();
-            content = $('#BookText').html();
+            title = document.body.querySelector('#htmltimu').innerText;
+            content = document.body.querySelector('#BookText').innerHTML;
         } else if (hn == "www.23wxx.com") {
-            title = $('div.bookname h1').text();
-            content = $('#content').html();
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.daomengren.com") {
-            title = $('div.bookname h1').text();
-            content = $('#content').html();
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.gxwztv.com") {
-            title = $('div#h1 > h1').text();
-            content = $('#txtContent').html();
+            title = document.body.querySelector('div#h1 > h1').innerText;
+            content = document.body.querySelector('#txtContent').innerHTML;
         } else if (hn == "www.xueyinglingzhu5200.com") {
-            title = $('div.bookname h1').text();
-            content = $('#content').html();
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.biquge.com.tw") {
-            title = $('div.bookname h1').text();
-            content = $('#content').html();
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.lwxs520.com") {
-            title = $('#bgdiv .border_l_r h1').text();
-            content = $('#content p').html();
+            title = document.body.querySelector('#bgdiv .border_l_r h1').innerText;
+            content = document.body.querySelector('#content p').innerHTML;
         }
         return { "title": title, "content": content };
-    };
-    
-    var data = getData();
+    }();
     document.head.innerHTML = '<title>' + 'NoveLR - ' + data.title + '</title>';
     document.body.innerHTML = '<div id="novelr_data"><div><h2>' + data.title + '</h2><div>' + data.content + '</div></div></div>';
-    $('body').css({"background-color": "#e9ecec"});
-    $('#novelr_data').css({ "width": "1000px", "align": "center", "margin": "20px auto", "border": "1px solid #d8d8d8", "background-color": "#f6f1e7", "font-size": "26px", "line-height": "40px" });
-    $('#novelr_data > div').css({ "border": "1px solid #d8d8d8", "margin": "10px", "font-family": "'Microsoft YaHei',PingFangSC-Regular,HelveticaNeue-Light,'Helvetica Neue Light',sans-serif" });
-    $('#novelr_data > div > div').css({ "padding": "20" });
-    $('#novelr_data h2').css({ "text-align": "center" });
+    document.body.style.cssText = 'background-color:#e9ecec';
+    document.body.querySelector('#novelr_data').style.cssText = 'width:1000px; align:center; margin:20px auto; border:1px solid #d8d8d8;background-color:#f6f1e7;font-size:26px; line-height:40px;';
+    document.body.querySelector('#novelr_data > div').style.cssText = 'border:1px solid #d8d8d8; margin: 10px; font-family:"Microsoft YaHei",PingFangSC-Regular,HelveticaNeue-Light,"Helvetica Neue Light",sans-serif;';
+    document.body.querySelector('#novelr_data > div > div').style.cssText = 'padding:20px';
+    document.body.querySelector('#novelr_data h2').style.cssText = 'text-align:center';
 })();
