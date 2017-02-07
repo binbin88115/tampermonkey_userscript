@@ -5,7 +5,14 @@
 // @description  reading novel online
 // @author       Beno
 // @match        http://www.79xs.com/Html/Book/*/*/*.html
+// @match        http://www.23wxx.com/*/*.html
+// @match        http://www.daomengren.com/*/*.html
+// @match        http://www.gxwztv.com/*/*/*.html
+// @match        http://www.xueyinglingzhu5200.com/book/*/*.html
+// @match        http://www.biquge.com.tw/*/*.html
+// @match        http://www.lwxs520.com/books/*/*/*.html
 // @require      http://code.jquery.com/jquery-2.2.4.min.js
+// @run-at       document-end
 // @grant        none
 // ==/UserScript==
 
