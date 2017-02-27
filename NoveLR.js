@@ -10,7 +10,12 @@
 // @match        http://www.gxwztv.com/*/*/*.html
 // @match        http://www.xueyinglingzhu5200.com/book/*/*.html
 // @match        http://www.biquge.com.tw/*/*.html
+// @match        http://www.biquge.com/*/*.html
 // @match        http://www.lwxs520.com/books/*/*/*.html
+// @match        http://www.555zw.com/book/*/*/*.html
+// @match        http://www.abc169.com/book/*/*/*.html
+// @match        http://www.lanseshuba.com/seshu/*/*.html
+// @match        http://www.81zw.com/book/*/*.html
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
@@ -48,12 +53,24 @@
         } else if (hn == "www.xueyinglingzhu5200.com") {
             title = document.body.querySelector('div.bookname h1').innerText;
             content = document.body.querySelector('#content').innerHTML;
-        } else if (hn == "www.biquge.com.tw") {
+        } else if (hn == "www.biquge.com.tw" || hn == "www.biquge.com") {
             title = document.body.querySelector('div.bookname h1').innerText;
             content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.lwxs520.com") {
             title = document.body.querySelector('#bgdiv .border_l_r h1').innerText;
             content = document.body.querySelector('#content p').innerHTML;
+        } else if (hn == "www.555zw.com") {
+            title = document.body.querySelector('div.article_listtitle').innerText;
+            content = document.body.querySelector('#content').innerHTML;
+        } else if (hn == "www.abc169.com") {
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
+        } else if (hn == "www.lanseshuba.com") {
+            title = document.body.querySelector('#amain dd h1').innerText;
+            content = document.body.querySelector('#contents').innerHTML;
+        } else if (hn == "www.81zw.com") {
+            title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
         }
         return { "title": title, "content": content };
     }();
