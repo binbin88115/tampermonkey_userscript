@@ -16,6 +16,7 @@
 // @match        http://www.abc169.com/book/*/*/*.html
 // @match        http://www.lanseshuba.com/seshu/*/*.html
 // @match        http://www.81zw.com/book/*/*.html
+// @match        http://www.shudaizi.org/book/*/*.html
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
@@ -68,7 +69,7 @@
         } else if (hn == "www.lanseshuba.com") {
             title = document.body.querySelector('#amain dd h1').innerText;
             content = document.body.querySelector('#contents').innerHTML;
-        } else if (hn == "www.81zw.com") {
+        } else if (hn == "www.81zw.com" || hn == "www.zwdu.com" || hn == "www.shudaizi.org") {
             title = document.body.querySelector('div.bookname h1').innerText;
             content = document.body.querySelector('#content').innerHTML;
         }
