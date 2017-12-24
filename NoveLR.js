@@ -17,13 +17,18 @@
 // @match        http://www.lanseshuba.com/seshu/*/*.html
 // @match        http://www.81zw.com/book/*/*.html
 // @match        http://www.shudaizi.org/book/*/*.html
+// @match        http://www.biqukan.com/*/*.html
+// @match        https://www.biquge.cc/html/*/*/*.html
+// @match        http://www.ibiquge.net/*/*.html
+// @match        http://www.cangqionglongqi.com/*/*.html
+// @match        http://www.tycqxs.com/*/*.html
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
-    
+
     var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
     var observer = new MutationObserver(function(records) {
         for (var i = 0; i < document.body.childNodes.length; ++i) {
@@ -34,7 +39,7 @@
         }
     });
     observer.observe(document.body, { 'childList': true });
-    
+
     var data = function() {
         var title = '';
         var content = '';
@@ -63,7 +68,7 @@
         } else if (hn == "www.555zw.com") {
             title = document.body.querySelector('div.article_listtitle').innerText;
             content = document.body.querySelector('#content').innerHTML;
-        } else if (hn == "www.abc169.com") {
+        } else if (hn == "www.abc169.com" || hn == "www.biquge.cc" || hn == "www.ibiquge.net" || hn == "www.cangqionglongqi.com" || hn == "www.tycqxs.com") {
             title = document.body.querySelector('div.bookname h1').innerText;
             content = document.body.querySelector('#content').innerHTML;
         } else if (hn == "www.lanseshuba.com") {
@@ -71,6 +76,10 @@
             content = document.body.querySelector('#contents').innerHTML;
         } else if (hn == "www.81zw.com" || hn == "www.zwdu.com" || hn == "www.shudaizi.org") {
             title = document.body.querySelector('div.bookname h1').innerText;
+            content = document.body.querySelector('#content').innerHTML;
+        }
+        else if (hn == "www.biqukan.com") {
+            title = document.body.querySelector('#wrapper > div.book.reader > div.content > h1').innerText;
             content = document.body.querySelector('#content').innerHTML;
         }
         return { "title": title, "content": content };
