@@ -7,12 +7,12 @@
 // @match        http://www.79xs.com/Html/Book/*/*/*.html
 // @match        http://www.23wxx.com/*/*.html
 // @match        http://www.daomengren.com/*/*.html
-// @match        http://www.gxwztv.com/*/*/*.html
+// @match        https://www.gxwztv.com/*/*/*.html
 // @match        http://www.xueyinglingzhu5200.com/book/*/*.html
 // @match        http://www.biquge.com.tw/*/*.html
 // @match        http://www.biquge.com/*/*.html
 // @match        http://www.lwxs520.com/books/*/*/*.html
-// @match        http://www.555zw.com/book/*/*/*.html
+// @match        https://www.555zw.com/book/*/*/*.html
 // @match        http://www.abc169.com/book/*/*/*.html
 // @match        http://www.lanseshuba.com/seshu/*/*.html
 // @match        http://www.81zw.com/book/*/*.html
@@ -22,6 +22,7 @@
 // @match        http://www.ibiquge.net/*/*.html
 // @match        http://www.cangqionglongqi.com/*/*.html
 // @match        http://www.tycqxs.com/*/*.html
+// @match        https://www.zwdu.com/book/*/*.html
 // @run-at       document-end
 // @grant        none
 // ==/UserScript==
